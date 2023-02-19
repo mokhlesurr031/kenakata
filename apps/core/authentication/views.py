@@ -3,11 +3,11 @@ from .models import UserProfile
 from .serializers import UserProfileSerializer
 
 
-class ListCreateUserList(ListCreateAPIView):
+class UserListCreateView(ListCreateAPIView):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
 
 
-class RetrieveUpdateDestroyUserDetail(RetrieveUpdateDestroyAPIView):
+class UserRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
