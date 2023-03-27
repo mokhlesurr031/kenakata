@@ -6,6 +6,9 @@ class Category(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self) -> str:
+        return self.name
+
 
 OFFER_CHOICES = (
     ('flat', 'Flat'),
@@ -16,6 +19,8 @@ OFFER_CHOICES = (
 class Product(models.Model):
     name = models.CharField(max_length=300)
     price = models.FloatField(default=0.0)
+    image = models.ImageField(upload_to='upload/images/', blank=True)
+    description = models.TextField()
     is_offer_running = models.BooleanField(default=False)
     offer_type = models.CharField(max_length=15, choices=OFFER_CHOICES, default='flat')
     offer_rate = models.FloatField(default=0.0)
@@ -23,3 +28,6 @@ class Product(models.Model):
     category = models.ForeignKey(Category,related_name='category',on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return self.name

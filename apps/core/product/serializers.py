@@ -14,7 +14,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['id', 'name', 'price', 'is_offer_running', 'offer_type', 'offer_rate', 'price_including_offer', 'category_name']
+        fields = ['id', 'name', 'price', 'image', 'description', 'is_offer_running', 'offer_type', 'offer_rate', 'price_including_offer', 'category_name']
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
