@@ -19,7 +19,7 @@ OFFER_CHOICES = (
 class Product(models.Model):
     name = models.CharField(max_length=300)
     price = models.FloatField(default=0.0)
-    image = models.ImageField(upload_to='upload/images/', blank=True)
+    image = models.ImageField(upload_to='upload/images/')
     description = models.TextField()
     is_offer_running = models.BooleanField(default=False)
     offer_type = models.CharField(max_length=15, choices=OFFER_CHOICES, default='flat')
